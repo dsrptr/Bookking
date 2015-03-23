@@ -1,0 +1,22 @@
+//
+//  Bill-prefix.pch
+//  Bookkeeping
+//
+//  Created by MartinLi on 15-3-4.
+//  Copyright (c) 2015年 Club. All rights reserved.
+//
+
+#ifndef Bookkeeping_Bill_prefix_pch
+#define Bookkeeping_Bill_prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#endif
+#import "ShareAction.h"
+#import "SharedData.h"
+typedef void (^doneWithObject)(id object);
