@@ -179,7 +179,7 @@
 +(void)selectDetailWithFinaplFinaPlpath:(NSString *)finalPath0 withDone:(doneWithObject)done{
     FMDatabase *billDB = [FMDatabase databaseWithPath:finalPath0];
     if ([billDB open]) {
-        NSString *sql8 = @"SELECT  bill.*, (select type.title from type where type.id=bill.type_parent_id) as type_parent_name,(select type.title from type where bill.type_id=type.id) as type_name  FROM bill where bill.id<10 order time";
+        NSString *sql8 = @"SELECT  bill.*, (select type.title from type where type.id=bill.type_parent_id) as type_parent_name,(select type.title from type where bill.type_id=type.id) as type_name  FROM bill where bill.id<10 order by time";
         FMResultSet *result = [billDB executeQuery:sql8];
         done(result);
         [billDB close];
@@ -190,7 +190,7 @@
 +(void)selectDetailWithParentId:(NSString *)parentid FinaplFinaPlpath:(NSString *)finalPath0 withDone:(doneWithObject)done{
     FMDatabase *billDB = [FMDatabase databaseWithPath:finalPath0];
     if ([billDB open]) {
-        NSString *sql8 =[NSString stringWithFormat:@"SELECT bill.*, (select type.title from type where type.id=bill.type_parent_id) as type_parent_name,(select type.title from type where bill.type_id=type.id) as type_name  FROM bill where bill.type_parent_id%@ order time",parentid];
+        NSString *sql8 =[NSString stringWithFormat:@"SELECT bill.*, (select type.title from type where type.id=bill.type_parent_id) as type_parent_name,(select type.title from type where bill.type_id=type.id) as type_name  FROM bill where bill.type_parent_id%@ order by time",parentid];
         FMResultSet *result = [billDB executeQuery:sql8];
         done(result);
         [billDB close];
